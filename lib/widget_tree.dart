@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:uipanel/drawer_page.dart';
+import 'package:uipanel/app_bar/app_bar_widget.dart';
+import 'package:uipanel/drawer/drawer_page.dart';
+import 'package:uipanel/panel_center/panel_center_page.dart';
+import 'package:uipanel/panel_left/panel_left_page.dart';
+import 'package:uipanel/panel_right/panel_right_page.dart';
 import 'package:uipanel/responsive_layout.dart';
 
 class WidgetTree extends StatefulWidget {
@@ -15,15 +19,37 @@ class _WidgetTreeState extends State<WidgetTree> {
         child: (ResponsiveLayout.isTinyLimit(context) ||
                 ResponsiveLayout.isTinyHeightLimit(context)
             ? Container()
-            : AppBar()),
+            : AppBarWidget()),
         preferredSize: Size(double.infinity, 100),
       ),
       body: ResponsiveLayout(
         tiny: Container(),
-        phone: Container(),
-        tablet: Container(),
-        largeTablet: Container(),
-        computer: Container(),
+        phone: PanelCenterPage(),
+        tablet: Row(
+          children: [
+            Expanded(
+              child: PanelLeftPage(),
+            ),
+            Expanded(
+              child: PanelCenterPage(),
+            ),
+          ],
+        ),
+        largeTablet: Row(
+          children: [
+            Expanded(child: PanelLeftPage()),
+            Expanded(child: PanelCenterPage()),
+            Expanded(child: PanelRightPage()),
+          ],
+        ),
+        computer: Row(
+          children: [
+            Expanded(child: DrawerPage()),
+            Expanded(child: PanelLeftPage()),
+            Expanded(child: PanelCenterPage()),
+            Expanded(child: PanelRightPage()),
+          ],
+        ),
       ),
       drawer: DrawerPage(),
     );
