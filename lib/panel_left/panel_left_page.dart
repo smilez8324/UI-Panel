@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:uipanel/panel_left/circle_graph.dart';
 import 'package:uipanel/responsive_layout.dart';
 import '../constants.dart';
+import 'curved_chart.dart';
 
 class Todo {
   String name;
@@ -18,6 +20,11 @@ class PanelLeftPage extends StatefulWidget {
 class _PanelLeftPageState extends State<PanelLeftPage> {
   List<Todo> _toDo = [
     Todo(name: "Purchase Paper", enable: true),
+    Todo(name: "Refill the inventory of speakers", enable: true),
+    Todo(name: "Hire someone", enable: true),
+    Todo(name: "Marketing Strategy", enable: true),
+    Todo(name: "Selling furniture", enable: true),
+    Todo(name: "Finish the disclosure", enable: true),
   ];
 
   @override
@@ -74,8 +81,8 @@ class _PanelLeftPageState extends State<PanelLeftPage> {
                     ),
                   ),
                 ),
-                //GRAPH 1
-                //GRAPH 2
+                LineChartSample2(),
+                PieChartSample2(),
                 Padding(
                   padding: const EdgeInsets.only(
                     left: Constants.kPadding / 2,
@@ -87,12 +94,16 @@ class _PanelLeftPageState extends State<PanelLeftPage> {
                     color: Constants.purpleLight,
                     elevation: 3,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50),
+                      borderRadius: BorderRadius.circular(20),
                     ),
                     child: Column(
                       children: List.generate(
                         _toDo.length,
                         (index) => CheckboxListTile(
+                            title: Text(
+                              _toDo[index].name,
+                              style: TextStyle(color: Colors.white),
+                            ),
                             value: _toDo[index].enable,
                             onChanged: (newValue) {
                               setState(() {
