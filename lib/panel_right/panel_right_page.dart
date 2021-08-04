@@ -15,7 +15,6 @@ class PanelRightPage extends StatefulWidget {
 }
 
 class _PanelLeftPageState extends State<PanelRightPage> {
-  @override
   List<Product> _products = [
     Product(name: "LED Submersible Lights", enable: true),
     Product(name: "Portable Projector", enable: true),

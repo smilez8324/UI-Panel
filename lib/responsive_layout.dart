@@ -1,4 +1,4 @@
-import 'dart:html';
+//import 'dart:html';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +20,7 @@ class ResponsiveLayout extends StatelessWidget {
 
   static final int tinyHeightLimit = 100;
   static final int tinyLimit = 270;
-  static final int phoneLimit = 400;
+  static final int phoneLimit = 550;
   static final int tabletLimit = 800;
   static final int largeTabletLimit = 1100;
 
