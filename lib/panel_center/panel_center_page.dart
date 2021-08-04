@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uipanel/constants.dart';
+import 'linear_graph.dart';
 
 class Person {
   String name;
@@ -69,7 +70,7 @@ class _PanelLeftPageState extends State<PanelCenterPage> {
                 ),
               ),
             ),
-            //Middle Chart
+            BarChartSample2(),
             Padding(
               padding: const EdgeInsets.only(
                 bottom: Constants.kPadding,
